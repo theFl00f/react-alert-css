@@ -11,7 +11,6 @@ import { colorOptions } from "./constants";
 export const PaletteForm = () => {
   const history = useHistory();
   const [state, dispatch] = useContext(Context);
-  const baseUrl = process.env.REACT_APP_DEPLOYED || "";
 
   const handleChange = (event) => {
     const newTheme = event.target.value;
@@ -41,9 +40,7 @@ export const PaletteForm = () => {
       </div>
       <div>
         <Button>
-          <Link to={`${baseUrl}/create/edit-alert${history.location.search}`}>
-            Next
-          </Link>
+          <Link to={`/create/edit-alert${history.location.search}`}>Next</Link>
         </Button>
       </div>
     </Form>

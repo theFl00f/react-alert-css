@@ -7,15 +7,13 @@ import routes from "./routes/routes";
 import { GlobalLayout } from "./views/layouts/GlobalLayout";
 
 function App() {
-  const baseUrl = process.env.REACT_APP_DEPLOYED || "";
-  console.log({ baseUrl });
   return (
     <Store>
       <BrowserRouter>
         <DndProvider backend={HTML5Backend}>
           <GlobalLayout>
-            <Route path={`${baseUrl}/`} exact>
-              <Redirect to={`${baseUrl}/create`} />
+            <Route path={`/`} exact>
+              <Redirect to={`/create`} />
             </Route>
             {routes.map(({ path, component, label, exact }) => (
               <Route
