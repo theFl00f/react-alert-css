@@ -40,7 +40,7 @@
     "start": "PORT=8080 craco start",
     "build": "craco build",
     "eject": "craco eject",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
