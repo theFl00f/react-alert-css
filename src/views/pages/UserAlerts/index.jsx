@@ -8,7 +8,7 @@ const UserAlerts = () => {
 
   const getAlerts = async () => {
     const response = await alertDao.getAlerts();
-    setAlerts(response.data);
+    setAlerts(response.data.result);
   };
 
   useEffect(() => {
