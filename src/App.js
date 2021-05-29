@@ -8,6 +8,7 @@ import { GlobalLayout } from "./views/layouts/GlobalLayout";
 
 function App() {
   const baseUrl = process.env.REACT_APP_DEPLOYED || "";
+  console.log({ baseUrl });
   return (
     <Store>
       <BrowserRouter>

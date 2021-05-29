@@ -2,6 +2,7 @@
   "name": "react-alert-css",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://theFl00f.github.io/react-alert-css",
   "dependencies": {
     "@craco/craco": "6.1.1",
     "@fortawesome/fontawesome-svg-core": "1.2.35",
