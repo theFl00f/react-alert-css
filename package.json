@@ -10,7 +10,6 @@
     "@tailwindcss/typography": "0.4.0",
     "axios": "0.21.1",
     "dotenv": "8.2.0",
-    "gh-pages": "3.2.0",
     "prismjs": "1.23.0",
     "react": "^17.0.2",
     "react-dnd": "14.0.2",
@@ -30,6 +29,7 @@
     "eslint": "7.26.0",
     "eslint-plugin-react": "7.23.2",
     "eslint-plugin-react-hooks": "4.2.0",
+    "gh-pages": "3.2.0",
     "postcss": "^7",
     "stylelint-config-recommended": "5.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
@@ -38,7 +38,9 @@
     "lint": "eslint src/**",
     "start": "PORT=8080 craco start",
     "build": "craco build",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
