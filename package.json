@@ -1,0 +1,59 @@
+{
+  "name": "react-alert-css",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "6.1.1",
+    "@fortawesome/fontawesome-svg-core": "1.2.35",
+    "@fortawesome/free-solid-svg-icons": "5.15.3",
+    "@fortawesome/react-fontawesome": "0.1.14",
+    "@tailwindcss/typography": "0.4.0",
+    "axios": "0.21.1",
+    "dotenv": "8.2.0",
+    "prismjs": "1.23.0",
+    "react": "^17.0.2",
+    "react-dnd": "14.0.2",
+    "react-dnd-html5-backend": "14.0.0",
+    "react-dom": "^17.0.2",
+    "react-inline-editing": "1.0.10",
+    "react-modal": "3.13.1",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "4.0.3",
+    "tinycolor2": "1.4.2"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "7.14.2",
+    "@babel/preset-react": "7.13.13",
+    "@tailwindcss/postcss7-compat": "2.1.2",
+    "autoprefixer": "^9",
+    "eslint": "7.26.0",
+    "eslint-plugin-react": "7.23.2",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "postcss": "^7",
+    "stylelint-config-recommended": "5.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  },
+  "scripts": {
+    "lint": "eslint src/**",
+    "start": "PORT=8080 craco start",
+    "build": "craco build",
+    "eject": "craco eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
