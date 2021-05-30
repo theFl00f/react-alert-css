@@ -36,10 +36,11 @@ export const PaletteForm = () => {
         ))}
       </div>
       <TinyColor />
-      <div>
-        <Button>
+      <div className="flex justify-end">
+        {/** TODO: Fix weird redirect bug with next button**/}
+        {/* <Button>
           <Link to={`/create/edit-alert${history.location.search}`}>Next</Link>
-        </Button>
+        </Button> */}
       </div>
     </Form>
   );
