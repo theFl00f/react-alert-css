@@ -92,9 +92,8 @@ export const TinyColor = () => {
     return color.map((color) => color.toHexString());
   });
 
-  const handlePaletteChange = (event) => {
-    const newValue = event.target.value;
-    const prevValue = event.target.attributes.value.value;
+  const handlePaletteChange = (color, prevValue) => {
+    const newValue = color.hex;
     const index = state.palette.indexOf(prevValue);
     const newColors = [...state.palette];
     newColors[index] = newValue;
@@ -127,20 +126,22 @@ export const TinyColor = () => {
 
   return (
     <>
-      {state.palette &&
-        state.palette.map((color, index) => {
-          return (
-            <Fragment key={index}>
-              <ColorInput
-                value={color}
-                label={color}
-                onChange={handlePaletteChange}
-              />
-            </Fragment>
-          );
-        })}
+      <div className="grid grid-cols-3 md:grid-cols-6 place-items-center">
+        {state.palette &&
+          state.palette.map((color, index) => {
+            return (
+              <Fragment key={index}>
+                <ColorInput
+                  value={color}
+                  label={color}
+                  handleChange={handlePaletteChange}
+                />
+              </Fragment>
+            );
+          })}
+      </div>
       <div className="col-span-3 md:col-span-6 flex items-center justify-center">
-        <Button onClick={handleClick}>Generate</Button>
+        <Button onClick={handleClick}>Generate new theme</Button>
       </div>
     </>
   );

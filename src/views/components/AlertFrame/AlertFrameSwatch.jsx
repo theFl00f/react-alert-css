@@ -6,11 +6,7 @@ export const AlertFrameSwatch = React.forwardRef(({ label, color }, ref) => {
   return (
     <div className="flex flex-col items-start">
       <p className="prose prose-sm text-white mb-0">{label}</p>
-      <ColorSwatch
-        className="rounded"
-        ref={ref}
-        style={{ backgroundColor: color }}
-      />
+      <ColorSwatch className="rounded" ref={ref} color={color} />
     </div>
   );
 });

@@ -6,9 +6,7 @@ import { AlertButtonBorder } from "../AlertButton/AlertButtonBorder";
 
 export const AlertBackground = () => {
   const [state, dispatch] = useContext(Context);
-  const { _isOver, color, drop } = useColorDrop(
-    state.alertBackgroundColor || "#4f4f4f"
-  );
+  const { color, drop } = useColorDrop(state.alertBackgroundColor || "#4f4f4f");
 
   const saveText = (value) => {
     dispatch({ type: "SET_MESSAGE", payload: value });

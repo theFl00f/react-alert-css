@@ -25,9 +25,7 @@ export const AlertButtonBorder = () => {
   const [computedStyles, setComputedStyles] = useState(
     getComputedStyles(state.buttonXPadding)
   );
-  const { _isOver, color, drop } = useColorDrop(
-    state.buttonBorderColor || "#000000"
-  );
+  const { color, drop } = useColorDrop(state.buttonBorderColor || "#000000");
 
   const saveText = (value) => {
     dispatch({ type: "SET_BUTTON_TEXT", payload: value });

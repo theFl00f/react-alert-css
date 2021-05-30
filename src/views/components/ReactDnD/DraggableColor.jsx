@@ -24,7 +24,8 @@ export const DraggableColor = memo(function DraggableColor({ color }) {
   return (
     <ColorSwatch
       ref={drag}
-      style={{ backgroundColor: color, opacity: isDragging ? 0.7 : 1 }}
+      color={color}
+      style={{ opacity: isDragging ? 0.7 : 1 }}
       className="cursor-move"
     />
   );

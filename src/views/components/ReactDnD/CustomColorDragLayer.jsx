@@ -34,9 +34,9 @@ export const CustomColorDragLayer = memo(function CustomColorDragLayer() {
   if (isDragging && itemType === ItemTypes.COLORS)
     return (
       <ColorSwatch
+        color={item.color}
         style={{
           ...styles,
-          backgroundColor: item.color,
           opacity: 0.7,
           pointerEvents: "none",
         }}

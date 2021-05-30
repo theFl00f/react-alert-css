@@ -5,9 +5,7 @@ import { Context } from "../../../../context/Store";
 
 export const AlertBackgroundBorder = () => {
   const [state, dispatch] = useContext(Context);
-  const { _isOver, color, drop } = useColorDrop(
-    state.alertBorderColor || "#ffffff"
-  );
+  const { color, drop } = useColorDrop(state.alertBorderColor || "#ffffff");
 
   useEffect(() => {
     dispatch({ type: "SET_ALERT_BORDER_COLOR", payload: color });

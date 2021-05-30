@@ -35,9 +35,7 @@ export const PaletteForm = () => {
           />
         ))}
       </div>
-      <div className="grid grid-cols-3 md:grid-cols-6 place-items-center">
-        <TinyColor />
-      </div>
+      <TinyColor />
       <div>
         <Button>
           <Link to={`/create/edit-alert${history.location.search}`}>Next</Link>

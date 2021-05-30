@@ -28,7 +28,7 @@ export const AlertButton = ({ children }) => {
   const [computedStyles, setComputedStyles] = useState(
     getComputedStyles(state.buttonXPadding)
   );
-  const { _isOver, color, drop } = useColorDrop(
+  const { color, drop } = useColorDrop(
     state.buttonBackgroundColor || "#1f1f1f"
   );
 
