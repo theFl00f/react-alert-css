@@ -63,7 +63,7 @@ export const UserAlert = ({ user, alertName, textValues, css, dimensions }) => {
         Created by <span className="italic font-mono">{user}</span>
       </p>
       <div className="flex flex-col items-center mt-1" style={styles}>
-        <p>{message}</p>
+        {message && <p>{message}</p>}
         <button
           className="cursor-default mt-auto"
           disabled
