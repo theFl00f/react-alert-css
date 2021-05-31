@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy } from "@fortawesome/free-solid-svg-icons";
+import {
+  faClipboard,
+  faClipboardCheck,
+} from "@fortawesome/free-solid-svg-icons";
 import Prism from "prismjs";
 import "../../../components/prism.css";
 
@@ -49,8 +52,8 @@ export const ExportedCodeBlock = ({ title, code, highlightingClass }) => {
         <button onClick={copyToClipboard} className={getButtonClasses()}>
           <FontAwesomeIcon
             aria-hidden={true}
-            title={buttonLabel}
-            icon={faCopy}
+            title={`${buttonLabel}${copied ? "- Copied" : ""}`}
+            icon={copied ? faClipboardCheck : faClipboard}
           />
           <span className="sr-only">{buttonLabel}</span>
         </button>

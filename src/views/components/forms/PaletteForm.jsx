@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+// import { useHistory } from "react-router";
+// import { Link } from "react-router-dom";
 import { Context } from "../../../context/Store";
-import { Button } from "../Button";
+// import { Button } from "../Button";
 import { Form } from "../Form";
 import { RadioInput } from "../Form/RadioInput";
 import { TinyColor } from "../TinyColor";
 import { colorOptions } from "./constants";
 
 export const PaletteForm = () => {
-  const history = useHistory();
+  // const history = useHistory();
   const [state, dispatch] = useContext(Context);
 
   const handleChange = (event) => {
