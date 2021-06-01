@@ -1,17 +1,39 @@
 import React from "react";
-import { DndProvider } from "react-dnd";
+import {
+  DndProvider,
+  TouchTransition,
+  MouseTransition,
+} from "react-dnd-multi-backend";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from "react-dnd-touch-backend";
 import { BrowserRouter, Redirect, Route } from "react-router-dom";
 import Store from "./context/Store";
 import routes from "./routes/routes";
 import { GlobalLayout } from "./views/layouts/GlobalLayout";
 import { Alert } from "./views/pages/templates/Alert";
 
+const HTML5toTouch = {
+  backends: [
+    {
+      id: "html5",
+      backend: HTML5Backend,
+      transition: MouseTransition,
+    },
+    {
+      id: "touch",
+      backend: TouchBackend,
+      options: { enableMouseEvents: true },
+      preview: true,
+      transition: TouchTransition,
+    },
+  ],
+};
+
 function App() {
   return (
     <Store>
       <BrowserRouter>
-        <DndProvider backend={HTML5Backend}>
+        <DndProvider options={HTML5toTouch}>
           <GlobalLayout>
             <Route path={`/`} exact>
               <Redirect to={`/create`} />
