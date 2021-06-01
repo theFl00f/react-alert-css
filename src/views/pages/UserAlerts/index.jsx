@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { alertDao } from "../../../context/persistentContext";
+import { timeout } from "../../../util/timeout";
 import { Loader } from "../../components/Loader";
 import { UserAlert } from "../../components/UserAlert";
 import { Wrapper } from "../../components/Wrapper";
@@ -8,13 +9,9 @@ const UserAlerts = () => {
   const [alerts, setAlerts] = useState();
   const [loading, setLoading] = useState(false);
 
-  const timeout = (ms) => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  };
-
   const getAlerts = async () => {
     setLoading(true);
-    const [response] = await Promise.all([alertDao.getAlerts(), timeout(2000)]);
+    const [response] = await Promise.all([alertDao.getAlerts(), timeout(1000)]);
     setAlerts(response.data.result);
     setLoading(false);
   };
@@ -26,13 +23,15 @@ const UserAlerts = () => {
   return (
     <div className="bg-rac-purple pb-10">
       <Wrapper>
-        <div className="w-full flex justify-center items-center h-10">
+        <div className="w-full flex justify-center items-center pt-4 pb-2">
           {loading && <Loader />}
         </div>
 
         <section className="flex flex-wrap gap-x-8 gap-y-6 justify-evenly">
           {alerts &&
-            alerts.map((alert) => <UserAlert key={alert._id} {...alert} />)}
+            alerts.map((alert) => (
+              <UserAlert key={alert._id} {...alert} hasLink />
+            ))}
         </section>
       </Wrapper>
     </div>

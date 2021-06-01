@@ -56,4 +56,8 @@ export default class AlertDao {
   getAlerts() {
     return axios.get(`${basePath}/api/alerts`);
   }
+
+  getAlert(id) {
+    return axios.get(`${basePath}/api/alert/${id}`);
+  }
 }

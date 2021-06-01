@@ -1,7 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCode } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
-export const UserAlert = ({ user, alertName, textValues, css, dimensions }) => {
+export const UserAlert = ({
+  hasLink,
+  _id: id,
+  user,
+  alertName,
+  textValues,
+  css,
+  dimensions,
+}) => {
   const { message, button } = textValues;
   const {
     alertBorderColor,
@@ -54,11 +65,28 @@ export const UserAlert = ({ user, alertName, textValues, css, dimensions }) => {
     buttonStyles.padding = `${buttonYPadding}rem ${buttonXPadding}rem`;
   }
 
+  const buttonLabel = "View code";
+
   return (
     <article className="inline-block">
-      <h2 className="prose prose-xl leading-snug text-rac-light-peach">
-        {alertName}
-      </h2>
+      <div className="flex justify-between">
+        <h2 className="prose prose-xl leading-snug text-rac-light-peach">
+          {alertName}
+        </h2>
+        {hasLink && (
+          <Link
+            to={`/alerts/${id}`}
+            className="p-1 text-rac-light-peach hover:text-rac-peach border-b-2 border-transparent focus:border-rac-light-peach transition-colors"
+          >
+            <FontAwesomeIcon
+              icon={faCode}
+              aria-hidden={true}
+              title={buttonLabel}
+            />
+            <span className="sr-only">{buttonLabel}</span>
+          </Link>
+        )}
+      </div>
       <p className="prose leading-tight text-white">
         Created by <span className="italic font-mono">{user}</span>
       </p>
@@ -78,6 +106,8 @@ export const UserAlert = ({ user, alertName, textValues, css, dimensions }) => {
 };
 
 UserAlert.propTypes = {
+  hasLink: PropTypes.bool,
+  _id: PropTypes.string.isRequired,
   user: PropTypes.string.isRequired,
   alertName: PropTypes.string.isRequired,
   textValues: PropTypes.exact({

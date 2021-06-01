@@ -6,7 +6,7 @@ import {
   faClipboardCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import Prism from "prismjs";
-import "../../../components/prism.css";
+import "../../components/prism.css";
 
 export const ExportedCodeBlock = ({ title, code, highlightingClass }) => {
   const [copied, setCopied] = useState(false);

@@ -5,6 +5,7 @@ import { BrowserRouter, Redirect, Route } from "react-router-dom";
 import Store from "./context/Store";
 import routes from "./routes/routes";
 import { GlobalLayout } from "./views/layouts/GlobalLayout";
+import { Alert } from "./views/pages/templates/Alert";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                 component={component}
               />
             ))}
+            <Route path={`/alerts/:id`} component={Alert} exact />
           </GlobalLayout>
         </DndProvider>
       </BrowserRouter>
