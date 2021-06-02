@@ -11,6 +11,7 @@ import {
   generateHTML,
 } from "../../components/ExportedCodeBlock/codeBlockUtil";
 import { Link } from "react-router-dom";
+import { NotFound } from "../../components/NotFound";
 
 export const Alert = ({ match }) => {
   const [alert, setAlert] = useState();
@@ -60,14 +61,7 @@ export const Alert = ({ match }) => {
         >
           {loading && <Loader />}
           {alert && <UserAlert {...alert} />}
-          {!loading && !alert && (
-            <div className="prose text-white text-center">
-              <h1 style={{ color: "#feb8bd" }} className="text-white">
-                Alert not found
-              </h1>
-              <p>Sorry, that alert does not exist.</p>
-            </div>
-          )}
+          {!loading && !alert && <NotFound item="alert" />}
         </div>
         {input && (
           <div className="bg-white px-4 rounded md:grid md:grid-cols-2 md:gap-2">
