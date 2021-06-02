@@ -11,7 +11,7 @@ export const GlobalLayout = ({ children }) => {
       <Wrapper>
         <header className="flex justify-between items-baseline py-2">
           <Link className="group" to={`/`}>
-            <h1 className="text-white group-hover:text-rac-yellow prose prose-2xl font-semibold transition-colors rac-transition">
+            <h1 className="text-white group-hover:text-rac-yellow group-focus:text-rac-light-peach prose prose-2xl font-semibold transition-colors rac-transition">
               react-alert-css
             </h1>
           </Link>

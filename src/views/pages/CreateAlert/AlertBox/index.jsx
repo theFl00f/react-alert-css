@@ -76,10 +76,10 @@ const AlertBox = () => {
   return (
     <>
       <AlertFrame />
-      <div className="flex justify-between items-end">
+      <div className="flex flex-col items-start md:flex-row md:justify-between md:items-end">
         <SelectedPalette />
         <Modal handlePublish={handlePublish} openButtonText="Export to code">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <ExportedCodeBlock
               title="CSS"
               highlightingClass="language-css"

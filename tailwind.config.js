@@ -4,6 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        "rac-deep-purple": "#181b7a",
+
         "rac-dark-purple": "#393c92",
         "rac-purple": "#585bd1",
         "rac-light-purple": "#ae97f9",
@@ -27,7 +29,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      textColor: ["group-focus"],
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };

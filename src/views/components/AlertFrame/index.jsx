@@ -19,9 +19,9 @@ export const AlertFrame = () => {
   }, [dispatch, buttonTextColor.color]);
 
   return (
-    <div className=" bg-rac-purple py-4 gap-x-8 rounded-r rounded-tl border-t-2 border-rac-yellow flex justify-center">
+    <div className=" bg-rac-purple py-4 gap-y-4 px-4 md:px-0 gap-x-8 rounded-r rounded-tl border-t-2 border-rac-yellow flex flex-col items-center md:flex-row md:justify-center">
       <AlertBackgroundBorder />
-      <article className="flex flex-col items-start">
+      <article className="flex gap-x-6 md:flex-col items-start">
         <AlertFrameSwatch
           label="Text color"
           ref={textColor.drop}

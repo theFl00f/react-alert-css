@@ -23,7 +23,7 @@ export const Modal = ({ children, openButtonText, handlePublish }) => {
 
   return (
     <>
-      <div className="mb-2">
+      <div className=" self-end mb-2">
         <Button onClick={openModal}>{openButtonText}</Button>
       </div>
       <ReactModal

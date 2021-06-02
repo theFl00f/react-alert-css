@@ -49,7 +49,7 @@ export const CreateAlertForm = () => {
   const inputClasses = "grid grid-cols-2";
 
   return (
-    <Form className="grid grid-cols-2 gap-y-4 gap-x-12">
+    <Form className="grid md:grid-cols-2 gap-y-4 gap-x-12">
       <RangeInput
         id="alertWidth"
         className={inputClasses}

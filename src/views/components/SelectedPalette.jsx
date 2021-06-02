@@ -24,7 +24,7 @@ export const SelectedPalette = () => {
 
   return (
     <section className="p-2 bg-rac-purple rounded-b pt-1 mb-2">
-      <div className="flex rounded overflow-hidden">
+      <div className="flex flex-wrap rounded overflow-hidden">
         {colors &&
           colors.map((color, index) => (
             <DraggableColor key={`${color}-${index}`} color={color} />
