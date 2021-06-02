@@ -11,7 +11,7 @@ export const RadioInput = ({ label, id, ...args }) => {
   }
   return (
     <div className={classes}>
-      <input className="hidden" id={id} type="radio" {...args} />
+      <input className="sr-only" id={id} type="radio" {...args} />
       <label className="cursor-pointer w-full text-center py-0.5" htmlFor={id}>
         {label}
       </label>

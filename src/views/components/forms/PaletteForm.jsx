@@ -24,7 +24,7 @@ export const PaletteForm = () => {
   return (
     <Form className="py-4 flex flex-col gap-6">
       <div
-        className="grid grid-cols-2 sm:grid-cols-5 gap-y-2 gap-x-4 sm:gap-2"
+        className="grid grid-cols-2 sm:grid-cols-5 gap-y-2 gap-x-4 sm:gap-2 border-2 border-transparent p-1 focus-within:border-rac-light-peach rounded"
         onChange={handleChange}
       >
         {colorOptions.map((color, index) => (

@@ -66,8 +66,13 @@ export const ColorInput = ({ label, value, handleChange }) => {
     <div className="flex flex-col items-center">
       <label htmlFor={value}>{label || value}</label>
       <div className="relative">
-        <button ref={inputNode} onClick={handleColorClick}>
-          <ColorSwatch color={value} />
+        <button
+          className="p-1"
+          style={{ outlineColor: value }}
+          ref={inputNode}
+          onClick={handleColorClick}
+        >
+          <ColorSwatch color={value} className="rounded" />
         </button>
         <div
           ref={pickerNode}
