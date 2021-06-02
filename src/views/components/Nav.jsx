@@ -50,7 +50,7 @@ export const Nav = () => {
         aria-controls="menu"
         onClick={toggleExpanded}
         onKeyDown={handleKeyDown}
-        className="md:hidden px-2 hover:text-rac-yellow focus:text-rac-light-peach fixed top-4 right-8 text-2xl bg-rac-deep-purple bg-opacity-60 rounded"
+        className="md:hidden px-2 hover:text-rac-yellow focus:text-rac-light-peach fixed top-4 right-4 text-2xl bg-rac-deep-purple bg-opacity-60 rounded"
       >
         <span className="sr-only">Menu</span>
         <FontAwesomeIcon icon={faBars} />
