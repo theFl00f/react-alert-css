@@ -20,8 +20,6 @@ Click different themes to generate new palettes for your alert, or just click/na
 ## Editing the alert
 ![Edit alert screen](https://user-images.githubusercontent.com/53948525/120089710-c8d10380-c0ca-11eb-9562-12a51a6a4ece.png)
 
-** Dragging is currently desktop-only **
-
 With your selected palette in hand, you can drag and drop colors to any of the visible elements: `alertBorderColor`, `alertBackgroundColor`, `buttonBorderColor`, `buttonBackgroundColor`, `textColor` and `buttonTextColor`.
 
 You can also use the slider form to alter the size, padding, border and border-radius of the alert and button, as well as edit the text of each inline by clicking on the text.
@@ -38,7 +36,7 @@ To save it for later, `press Publish`.
 ## Viewing saved user-created alerts
 ![react-alert-css netlify app_alerts](https://user-images.githubusercontent.com/53948525/120121488-c83f7800-c171-11eb-9d48-dabf6a688ef4.png)
 
-For now, a gallery of user alerts. Coming soon: Click any alert to open a modal to view the generated code!
+For now, a gallery of user alerts. Click any alert to navigate to its template page where you can view the generated code!
 
 ## To run locally...
 
