@@ -36,7 +36,7 @@ export const Nav = () => {
 
   const ulClasses = classNames(
     {
-      "flex flex-col items-center absolute top-4 right-1 -left-40 bg-rac-deep-purple bg-opacity-80 rounded-b py-2 gap-2":
+      "flex flex-col items-center fixed top-14 right-4 bg-rac-deep-purple bg-opacity-80 rounded-b p-2 gap-2":
         isExpanded,
       hidden: !isExpanded,
     },
@@ -44,13 +44,14 @@ export const Nav = () => {
   );
 
   return (
-    <nav className="relative" ref={ref}>
+    <nav ref={ref}>
       <button
         aria-expanded={isExpanded}
         aria-controls="menu"
         onClick={toggleExpanded}
         onKeyDown={handleKeyDown}
-        className="md:hidden px-2 hover:text-rac-yellow focus:text-rac-light-peach fixed top-4 right-4 text-2xl bg-rac-deep-purple bg-opacity-60 rounded"
+        className="md:hidden px-2 hover:text-rac-yellow focus:text-rac-light-peach fixed top-4 text-2xl bg-rac-deep-purple bg-opacity-60 rounded"
+        style={{ right: "calc((1vw / 24) + 1.5rem)" }}
       >
         <span className="sr-only">Menu</span>
         <FontAwesomeIcon icon={faBars} />

@@ -49,7 +49,7 @@ export const AlertButton = ({ children }) => {
   return (
     <button
       className="max-w-full cursor-default"
-      disabled
+      tabIndex="-1"
       style={computedStyles}
       ref={drop}
     >
