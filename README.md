@@ -43,7 +43,7 @@ For now, a gallery of user alerts. Click any alert to navigate to its template p
 1. Clone this repo
 2. Add backend API base path to .env as `REACT_APP_BASE_URL` located in the root of the project -- this can be hardcoded to the production database as shown below, or can be set to `localhost:3000` to work with [the development backend](https://github.com/theFl00f/react-alert-css-backend).
 ```env
-//.env
+#.env
 REACT_APP_BASE_URL=https://react-alert-css-backend.herokuapp.com
 ```
 3. Run `yarn install`
