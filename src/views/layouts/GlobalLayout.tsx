@@ -1,11 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import { Footer } from "../components/Footer";
 import { Nav } from "../components/Nav";
 import { Wrapper } from "../components/Wrapper";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export const GlobalLayout = ({ children }) => {
+export const GlobalLayout: FC = ({ children }) => {
   return (
     <div className="min-h-screen bg-rac-dark-purple flex flex-col text-white">
       <Wrapper>
@@ -24,8 +23,4 @@ export const GlobalLayout = ({ children }) => {
       </Wrapper>
     </div>
   );
-};
-
-GlobalLayout.propTypes = {
-  children: PropTypes.node.isRequired,
 };

@@ -1,9 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import { Wrapper } from "../components/Wrapper";
 import { CreateAlertNav } from "../pages/CreateAlert/CreateAlertNav";
-import PropTypes from "prop-types";
 
-export const CreateAlertLayout = ({ children }) => {
+export const CreateAlertLayout: FC = ({ children }) => {
   return (
     <>
       <Wrapper>
@@ -12,8 +11,4 @@ export const CreateAlertLayout = ({ children }) => {
       {children}
     </>
   );
-};
-
-CreateAlertLayout.propTypes = {
-  children: PropTypes.element.isRequired,
 };
