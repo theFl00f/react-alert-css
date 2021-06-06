@@ -17,11 +17,14 @@ import { InlineEdit } from "../../../components/InlineEdit";
 import { Button } from "../../../components/Button";
 import { Wrapper } from "../../../components/Wrapper";
 import { AlertFormModal } from "../../../components/AlertFormModal";
+import { Loader } from "../../../components/Loader";
+import { timeout } from "../../../../util/timeout";
 
 const AlertBox = () => {
   const [state, dispatch] = useContext(Context);
   const history = useHistory();
   const [formIsOpen, setFormIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const addAlert = ({ ...state }) => {
     return alertDao.addAlert({
@@ -35,18 +38,20 @@ const AlertBox = () => {
 
   const handlePublish = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     //send state to DB
     if (state.error) {
       throw state.error;
     }
     try {
-      const response = await addAlert(state);
+      const [response] = await Promise.all([addAlert(state), timeout(1000)]);
       if (response) {
         history.push("/alerts");
       }
     } catch (e) {
       console.log(e);
     }
+    setIsLoading(false);
   };
 
   const input = stateToAlert({ ...state });
@@ -67,12 +72,13 @@ const AlertBox = () => {
             <form onSubmit={handlePublish}>
               <h1>Name your alert</h1>
               <p>
-                Click to edit your name and the alert title! <br /> (Or just{" "}
-                <span className="font-mono">Submit</span> to stay anonymous)
+                Click each input to edit your name and the alert title! <br />{" "}
+                (Or just <span className="font-mono">Submit</span> to stay
+                anonymous)
               </p>
               <div className="flex flex-wrap justify-between items-end mt-2">
                 <div className="w-2/3">
-                  <span className="text-2xl underline">
+                  <span className="text-2xl underline transition-colors rac-transition hover:text-rac-peach">
                     <InlineEdit
                       text={state.alertName}
                       saveText={setAlertName}
@@ -80,7 +86,7 @@ const AlertBox = () => {
                   </span>
                   <div className="flex items-baseline gap-2">
                     <span>By </span>
-                    <span className="font-mono underline">
+                    <span className="font-mono underline transition-colors rac-transition hover:text-rac-peach">
                       <InlineEdit text={state.user} saveText={setUser} />
                     </span>
                   </div>
@@ -91,7 +97,8 @@ const AlertBox = () => {
               </div>
             </form>
             <div className="flex items-center justify-center mt-2">
-              <UserAlert {...input} />
+              {!isLoading && <UserAlert {...input} />}
+              {isLoading && <Loader />}
             </div>
           </div>
         </AlertFormModal>
