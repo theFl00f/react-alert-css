@@ -45,13 +45,14 @@ const AlertBox = () => {
     }
     try {
       const [response] = await Promise.all([addAlert(state), timeout(1000)]);
+      setIsLoading(false);
       if (response) {
         history.push("/alerts");
       }
     } catch (e) {
       console.log(e);
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   const input = stateToAlert({ ...state });
