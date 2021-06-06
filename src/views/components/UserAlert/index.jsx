@@ -5,6 +5,7 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export const UserAlert = ({
+  showTitle,
   hasLink,
   _id: id,
   user,
@@ -70,10 +71,13 @@ export const UserAlert = ({
   return (
     <article className="inline-block">
       <div className="flex justify-between">
-        <h2 className="prose prose-xl leading-snug text-rac-light-peach">
-          {alertName}
-        </h2>
-        {hasLink && (
+        {showTitle && (
+          <h2 className="prose prose-xl leading-snug text-rac-light-peach">
+            {alertName}
+          </h2>
+        )}
+
+        {hasLink && id && (
           <Link
             to={`/alerts/${id}`}
             className="p-1 text-rac-light-peach hover:text-rac-peach border-b-2 border-transparent focus:border-rac-light-peach transition-colors"
@@ -87,9 +91,12 @@ export const UserAlert = ({
           </Link>
         )}
       </div>
-      <p className="prose leading-tight text-white">
-        Created by <span className="italic font-mono">{user}</span>
-      </p>
+      {showTitle && (
+        <p className="prose leading-tight text-white">
+          Created by <span className="italic font-mono">{user}</span>
+        </p>
+      )}
+
       <div className="flex flex-col items-center mt-1" style={styles}>
         {message && <p>{message}</p>}
         <button
@@ -107,7 +114,9 @@ export const UserAlert = ({
 
 UserAlert.propTypes = {
   hasLink: PropTypes.bool,
-  _id: PropTypes.string.isRequired,
+  showTitle: PropTypes.bool,
+
+  _id: PropTypes.string,
   user: PropTypes.string.isRequired,
   alertName: PropTypes.string.isRequired,
   textValues: PropTypes.exact({

@@ -5,12 +5,12 @@ import PropTypes from "prop-types";
 
 export const CreateAlertLayout = ({ children }) => {
   return (
-    <div>
+    <>
       <Wrapper>
         <CreateAlertNav />
-        {children}
       </Wrapper>
-    </div>
+      {children}
+    </>
   );
 };
 

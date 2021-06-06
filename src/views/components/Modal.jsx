@@ -3,7 +3,7 @@ import ReactModal from "react-modal";
 import PropTypes from "prop-types";
 import { Button } from "./Button";
 
-export const Modal = ({ children, openButtonText, handlePublish }) => {
+export const Modal = ({ children, openButtonText, afterClose }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -16,14 +16,14 @@ export const Modal = ({ children, openButtonText, handlePublish }) => {
 
   const handleClick = () => {
     closeModal();
-    handlePublish();
+    afterClose && afterClose();
   };
 
   ReactModal.setAppElement("#root");
 
   return (
     <>
-      <div className=" self-end mb-2">
+      <div className="self-end mb-2">
         <Button onClick={openModal}>{openButtonText}</Button>
       </div>
       <ReactModal
@@ -32,7 +32,7 @@ export const Modal = ({ children, openButtonText, handlePublish }) => {
         shouldCloseOnOverlayClick={true}
         overlayClassName="fixed inset-0 bg-black bg-opacity-50"
       >
-        {handlePublish && (
+        {afterClose && (
           <div className="flex justify-end">
             <Button onClick={handleClick}>Publish</Button>
           </div>
@@ -46,5 +46,5 @@ export const Modal = ({ children, openButtonText, handlePublish }) => {
 Modal.propTypes = {
   children: PropTypes.element.isRequired,
   openButtonText: PropTypes.string.isRequired,
-  handlePublish: PropTypes.func.isRequired,
+  afterClose: PropTypes.func.isRequired,
 };

@@ -12,6 +12,7 @@ import {
 } from "../../components/ExportedCodeBlock/codeBlockUtil";
 import { Link } from "react-router-dom";
 import { NotFound } from "../../components/NotFound";
+import { alertToState } from "../../../util/alertFormat";
 
 export const Alert = ({ match }) => {
   const [alert, setAlert] = useState();
@@ -35,16 +36,7 @@ export const Alert = ({ match }) => {
     if (!alert) getAlerts();
   }, []);
 
-  const input = alert
-    ? {
-        alertName: alert.alertName,
-        ...alert.css,
-        ...alert.dimensions,
-        buttonText: alert.textValues.button,
-        message: alert.textValues.message,
-        user: alert.user,
-      }
-    : undefined;
+  const input = alert && alertToState(alert);
 
   return (
     <Wrapper>
@@ -60,7 +52,7 @@ export const Alert = ({ match }) => {
           className="flex justify-center items-center bg-rac-purple py-2 rounded"
         >
           {loading && <Loader />}
-          {alert && <UserAlert {...alert} />}
+          {alert && <UserAlert {...alert} showTitle />}
           {!loading && !alert && <NotFound item="alert" />}
         </div>
         {input && (

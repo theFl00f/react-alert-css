@@ -23,6 +23,8 @@ const initialState = {
   buttonYPadding: 0.4,
   buttonBorderRadius: 0,
   buttonBorderWidth: 0.5,
+  user: "Anonymous",
+  alertName: "Untitled",
   error: null,
 };
 

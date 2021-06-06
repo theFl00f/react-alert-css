@@ -38,7 +38,7 @@ const UserAlerts = () => {
         <section className="flex flex-wrap gap-x-8 gap-y-6 justify-evenly">
           {alerts &&
             alerts.map((alert) => (
-              <UserAlert key={alert._id} {...alert} hasLink />
+              <UserAlert key={alert._id} {...alert} hasLink showTitle />
             ))}
         </section>
       </Wrapper>

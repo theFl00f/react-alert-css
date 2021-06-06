@@ -7,10 +7,11 @@ export const SelectedPalette = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
 
-  const colors = params
-    .get("colors")
-    .split("-")
-    .map((color) => `#${color}`);
+  const colorParams = params.get("colors");
+
+  if (!colorParams) return null;
+
+  const colors = colorParams.split("-").map((color) => `#${color}`);
 
   const checkHasColors = (basics) => {
     for (let i = 0; i < basics.length; i++) {

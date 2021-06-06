@@ -22,10 +22,12 @@ export default class AlertDao {
     buttonYPadding,
     buttonBorderRadius,
     buttonBorderWidth,
+    user,
+    alertName,
   }) {
     return axios.post(`${basePath}/api/alert`, {
-      user: "Anonymous",
-      alertName: "Untitled",
+      user,
+      alertName,
       textValues: {
         message,
         button: buttonText,

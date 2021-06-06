@@ -109,6 +109,17 @@ const Reducer = (state, action) => {
         ...state,
         buttonBorderWidth: action.payload,
       };
+
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.payload,
+      };
+    case "SET_ALERT_NAME":
+      return {
+        ...state,
+        alertName: action.payload,
+      };
     case "SET_ERROR":
       return {
         ...state,
