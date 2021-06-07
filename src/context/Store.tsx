@@ -1,8 +1,7 @@
-import React, { createContext, useReducer } from "react";
-import PropTypes from "prop-types";
+import React, { createContext, Dispatch, FC, useReducer } from "react";
 import Reducer from "./Reducer";
 
-const initialState = {
+const initialState: State = {
   palette: [],
   theme: "analogous",
   alertBorderColor: "",
@@ -12,7 +11,7 @@ const initialState = {
   textColor: "",
   buttonTextColor: "",
   message: "",
-  buttonText: "Close",
+  button: "Close",
   alertWidth: 24,
   alertHeight: 14,
   alertBorderRadius: 0,
@@ -28,16 +27,15 @@ const initialState = {
   error: null,
 };
 
-const Store = ({ children }) => {
+const Store: FC = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, initialState);
   return (
     <Context.Provider value={[state, dispatch]}>{children}</Context.Provider>
   );
 };
 
-export const Context = createContext(initialState);
+export const Context = createContext<[State, Dispatch<Action>]>([
+  initialState,
+  () => null,
+]);
 export default Store;
-
-Store.propTypes = {
-  children: PropTypes.element.isRequired,
-};

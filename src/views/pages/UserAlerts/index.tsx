@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { alertDao } from "../../../context/persistentContext";
 import { timeout } from "../../../util/timeout";
 import { Loader } from "../../components/Loader";
@@ -6,8 +6,8 @@ import { NotFound } from "../../components/NotFound";
 import { UserAlert } from "../../components/UserAlert";
 import { Wrapper } from "../../components/Wrapper";
 
-const UserAlerts = () => {
-  const [alerts, setAlerts] = useState();
+const UserAlerts: FC = () => {
+  const [alerts, setAlerts] = useState<DBAlertWithId[]>();
   const [loading, setLoading] = useState(false);
 
   const getAlerts = async () => {

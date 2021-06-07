@@ -1,22 +1,22 @@
 //spread alert
-export const alertToState = (state) => {
+export const alertToState = (state: DBAlert): StateAlert => {
   return {
     alertName: state.alertName,
     user: state.user,
-    buttonText: state.textValues.button,
+    button: state.textValues.button,
     message: state.textValues.message,
     ...state.css,
     ...state.dimensions,
   };
 };
 
-export const stateToAlert = (alert) => {
+export const stateToAlert = (alert: StateAlert): DBAlert => {
   return {
-    user: "Anonymous",
-    alertName: "Untitled",
+    user: alert.user,
+    alertName: alert.alertName,
     textValues: {
       message: alert.message,
-      button: alert.buttonText,
+      button: alert.button,
     },
     css: {
       alertBorderColor: alert.alertBorderColor,

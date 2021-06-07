@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { FC, useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { CreateAlertLayout } from "../../layouts/CreateAlertLayout";
 import routes from "../../../routes/createAlert.routes";
 import { Context } from "../../../context/Store";
 import { joinColors } from "../../../util/colorUtil";
 
-const CreateAlert = () => {
+const CreateAlert: FC = () => {
   const [state] = useContext(Context);
 
   const params = new URLSearchParams({

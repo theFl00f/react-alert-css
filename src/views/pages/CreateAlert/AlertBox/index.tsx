@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import { useHistory } from "react-router";
 import { alertDao } from "../../../../context/persistentContext";
 import { Context } from "../../../../context/Store";
@@ -20,16 +20,14 @@ import { AlertFormModal } from "../../../components/AlertFormModal";
 import { Loader } from "../../../components/Loader";
 import { timeout } from "../../../../util/timeout";
 
-const AlertBox = () => {
+const AlertBox: FC = () => {
   const [state, dispatch] = useContext(Context);
   const history = useHistory();
   const [formIsOpen, setFormIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const addAlert = ({ ...state }) => {
-    return alertDao.addAlert({
-      ...state,
-    });
+  const addAlert = (state: StateAlert) => {
+    return alertDao.addAlert(state);
   };
 
   const openCreatorForm = () => {
@@ -57,11 +55,11 @@ const AlertBox = () => {
 
   const input = stateToAlert({ ...state });
 
-  const setUser = (user) => {
+  const setUser = (user: string) => {
     return dispatch({ type: "SET_USER", payload: user });
   };
 
-  const setAlertName = (alertName) => {
+  const setAlertName = (alertName: string) => {
     return dispatch({ type: "SET_ALERT_NAME", payload: alertName });
   };
 

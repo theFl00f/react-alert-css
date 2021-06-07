@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import routes from "../../../routes/createAlert.routes";
 
-export const CreateAlertNav = () => {
+export const CreateAlertNav: FC = () => {
   const location = useLocation();
 
   return (

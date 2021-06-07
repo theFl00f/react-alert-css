@@ -1,4 +1,4 @@
-const Reducer = (state, action) => {
+const Reducer = (state: State, action: Action): State => {
   switch (action.type) {
     // overall palette selection
     case "SET_PALETTE":
@@ -53,7 +53,7 @@ const Reducer = (state, action) => {
     case "SET_BUTTON_TEXT":
       return {
         ...state,
-        buttonText: action.payload,
+        button: action.payload,
       };
 
     // dimensions

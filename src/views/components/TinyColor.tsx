@@ -1,4 +1,5 @@
 import React, {
+  FC,
   Fragment,
   useCallback,
   useContext,
@@ -13,8 +14,9 @@ import { joinColors, splitColors } from "../../util/colorUtil";
 import { Context } from "../../context/Store";
 import { usePrevious } from "../../util/usePrevious";
 import { Button } from "./Button";
+import { ColorResult } from "react-color";
 
-export const TinyColor = () => {
+export const TinyColor: FC = () => {
   const history = useHistory();
   const [state, dispatch] = useContext(Context);
 
@@ -28,11 +30,11 @@ export const TinyColor = () => {
 
   const paletteUrl = searchParams.get("colors");
 
-  const setTheme = (theme) => {
+  const setTheme = (theme: ThemeOptions) => {
     dispatch({ type: "SET_THEME", payload: theme });
   };
 
-  const setPalette = (colors) => {
+  const setPalette = (colors: string[]) => {
     dispatch({ type: "SET_PALETTE", payload: colors });
 
     const colorParams = joinColors(colors);
@@ -57,8 +59,8 @@ export const TinyColor = () => {
     return tinycolor.random();
   };
 
-  const generatePalette = useCallback((paletteType) => {
-    let color;
+  const generatePalette = useCallback((paletteType: ThemeOptions): string[] => {
+    let color: tinycolor.Instance[];
     switch (paletteType) {
       case "analogous": {
         color = randomColor().analogous();
@@ -90,9 +92,9 @@ export const TinyColor = () => {
       }
     }
     return color.map((color) => color.toHexString());
-  });
+  }, []);
 
-  const handlePaletteChange = (color, prevValue) => {
+  const handlePaletteChange = (color: ColorResult, prevValue: string) => {
     const newValue = color.hex;
     const index = state.palette.indexOf(prevValue);
     const newColors = [...state.palette];
@@ -100,7 +102,7 @@ export const TinyColor = () => {
     return setPalette(newColors);
   };
 
-  const handleClick = (e) => {
+  const handleClick = (e: Event) => {
     e.preventDefault();
     return setPalette(generatePalette(state.theme));
   };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import {
   DndProvider,
   TouchTransition,
@@ -29,7 +29,7 @@ const HTML5toTouch = {
   ],
 };
 
-function App() {
+const App: FC = () => {
   return (
     <Store>
       <BrowserRouter>
@@ -52,6 +52,6 @@ function App() {
       </BrowserRouter>
     </Store>
   );
-}
+};
 
 export default App;
