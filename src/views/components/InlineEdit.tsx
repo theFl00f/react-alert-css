@@ -1,8 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import EditableLabel from "react-inline-editing";
-import PropTypes from "prop-types";
 
-export const InlineEdit = ({ text, saveText }) => {
+interface Props {
+  text: string;
+  saveText: (value: string) => void;
+}
+
+export const InlineEdit: FC<Props> = ({ text, saveText }) => {
   return (
     <>
       <EditableLabel
@@ -13,9 +17,4 @@ export const InlineEdit = ({ text, saveText }) => {
       />
     </>
   );
-};
-
-InlineEdit.propTypes = {
-  text: PropTypes.string,
-  saveText: PropTypes.func.isRequired,
 };

@@ -1,11 +1,16 @@
-import React, { memo, useEffect } from "react";
+import React, { FC, memo, useEffect } from "react";
 import { useDrag } from "react-dnd";
 import { ColorSwatch } from "../ColorSwatch";
-import { ItemTypes } from "../ReactDnD/constants";
-import PropTypes from "prop-types";
+import { ItemTypes } from "./constants";
 import { getEmptyImage } from "react-dnd-html5-backend";
 
-export const DraggableColor = memo(function DraggableColor({ color }) {
+interface Props {
+  color: string;
+}
+
+export const DraggableColor: FC<Props> = memo(function DraggableColor({
+  color,
+}) {
   const [{ isDragging }, drag, preview] = useDrag(
     () => ({
       type: ItemTypes.COLORS,
@@ -30,7 +35,3 @@ export const DraggableColor = memo(function DraggableColor({ color }) {
     />
   );
 });
-
-DraggableColor.propTypes = {
-  color: PropTypes.string.isRequired,
-};

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import { useLocation } from "react-router-dom";
 import { CustomColorDragLayer } from "./ReactDnD/CustomColorDragLayer";
 import { DraggableColor } from "./ReactDnD/DraggableColor";
 
-export const SelectedPalette = () => {
+export const SelectedPalette: FC = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
 
@@ -13,7 +13,7 @@ export const SelectedPalette = () => {
 
   const colors = colorParams.split("-").map((color) => `#${color}`);
 
-  const checkHasColors = (basics) => {
+  const checkHasColors = (basics: string[]) => {
     for (let i = 0; i < basics.length; i++) {
       if (!colors.includes(basics[i])) {
         colors.push(basics[i]);

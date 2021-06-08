@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-export const Loader = () => {
+export const Loader: FC = () => {
   return (
     <div
       className="border-4 border-white border-opacity-30 rounded-full h-10 w-10 flex justify-center items-center animate-spin"

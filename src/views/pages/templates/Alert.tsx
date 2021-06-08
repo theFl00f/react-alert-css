@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, { FC, useEffect, useState } from "react";
 import { alertDao } from "../../../context/persistentContext";
 import { timeout } from "../../../util/timeout";
 import { UserAlert } from "../../components/UserAlert";
@@ -10,12 +9,18 @@ import {
   generateCSS,
   generateHTML,
 } from "../../components/ExportedCodeBlock/codeBlockUtil";
-import { Link } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 import { NotFound } from "../../components/NotFound";
 import { alertToState } from "../../../util/alertFormat";
 
-export const Alert = ({ match }) => {
-  const [alert, setAlert] = useState();
+interface MatchParams {
+  id: string;
+}
+
+type MatchProps = RouteComponentProps<MatchParams>;
+
+export const Alert: FC<MatchProps> = ({ match }: MatchProps) => {
+  const [alert, setAlert] = useState<DBAlert>();
   const [loading, setLoading] = useState(false);
 
   const getAlerts = async () => {
@@ -52,7 +57,7 @@ export const Alert = ({ match }) => {
           className="flex justify-center items-center bg-rac-purple py-2 rounded"
         >
           {loading && <Loader />}
-          {alert && <UserAlert {...alert} showTitle />}
+          {alert && <UserAlert alert={alert} showTitle />}
           {!loading && !alert && <NotFound item="alert" />}
         </div>
         {input && (
@@ -72,15 +77,4 @@ export const Alert = ({ match }) => {
       </div>
     </Wrapper>
   );
-};
-
-Alert.propTypes = {
-  match: PropTypes.shape({
-    isExact: PropTypes.bool,
-    params: {
-      id: PropTypes.string,
-    },
-    path: PropTypes.string,
-    url: PropTypes.string,
-  }),
 };

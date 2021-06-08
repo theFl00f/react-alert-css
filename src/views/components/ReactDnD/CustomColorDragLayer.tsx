@@ -1,9 +1,9 @@
-import React, { memo } from "react";
-import { useDragLayer } from "react-dnd";
+import React, { CSSProperties, FC, memo } from "react";
+import { useDragLayer, XYCoord } from "react-dnd";
 import { ColorSwatch } from "../ColorSwatch";
 import { ItemTypes } from "./constants";
 
-export const CustomColorDragLayer = memo(function CustomColorDragLayer() {
+export const CustomColorDragLayer: FC = memo(function CustomColorDragLayer() {
   const { itemType, isDragging, item, initialOffset, currentOffset } =
     useDragLayer((monitor) => {
       return {
@@ -15,7 +15,10 @@ export const CustomColorDragLayer = memo(function CustomColorDragLayer() {
       };
     });
 
-  const getStyles = (initialOffset, currentOffset) => {
+  const getStyles = (
+    initialOffset: XYCoord | null,
+    currentOffset: XYCoord | null
+  ): CSSProperties => {
     if (!initialOffset || !currentOffset) {
       return {
         display: "none",
@@ -45,5 +48,3 @@ export const CustomColorDragLayer = memo(function CustomColorDragLayer() {
     );
   return null;
 });
-
-CustomColorDragLayer.displayName = "CustomColorDragLayer";

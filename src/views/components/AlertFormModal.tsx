@@ -1,8 +1,12 @@
-import React from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
 import ReactModal from "react-modal";
-import PropTypes from "prop-types";
 
-export const AlertFormModal = ({ isOpen, setIsOpen, children }) => {
+interface Props {
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+export const AlertFormModal: FC<Props> = ({ isOpen, setIsOpen, children }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -17,10 +21,4 @@ export const AlertFormModal = ({ isOpen, setIsOpen, children }) => {
       {children}
     </ReactModal>
   );
-};
-
-AlertFormModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  setIsOpen: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
 };

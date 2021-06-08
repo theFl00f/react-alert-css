@@ -1,19 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { CSSProperties, FC, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-export const UserAlert = ({
-  showTitle,
-  hasLink,
-  _id: id,
-  user,
-  alertName,
-  textValues,
-  css,
-  dimensions,
-}) => {
+interface Props {
+  showTitle?: boolean;
+  hasLink?: boolean;
+  alert: DBAlertWithId | DBAlert;
+}
+
+export const UserAlert: FC<Props> = ({ showTitle, hasLink, alert }) => {
+  const { user, alertName, textValues, css, dimensions } = alert;
   const { message, button } = textValues;
   const {
     alertBorderColor,
@@ -37,7 +34,11 @@ export const UserAlert = ({
     buttonBorderRadius,
   } = dimensions;
 
-  const styles = {
+  const buttonLabel = "View code";
+
+  const [alertId, setAlertId] = useState<string>();
+
+  const styles: CSSProperties = {
     backgroundColor: alertBackgroundColor,
     border: `10px solid ${alertBorderColor}`,
     color: textColor,
@@ -47,7 +48,7 @@ export const UserAlert = ({
         : `${alertYPadding}rem ${alertXPadding}rem`,
   };
 
-  const buttonStyles = {
+  const buttonStyles: CSSProperties = {
     backgroundColor: buttonBackgroundColor,
     border: `${buttonBorderWidth}rem solid ${buttonBorderColor}`,
     borderRadius: `${buttonBorderRadius}rem`,
@@ -66,7 +67,9 @@ export const UserAlert = ({
     buttonStyles.padding = `${buttonYPadding}rem ${buttonXPadding}rem`;
   }
 
-  const buttonLabel = "View code";
+  if ("_id" in alert) {
+    setAlertId(alert._id);
+  }
 
   return (
     <article className="inline-block">
@@ -77,9 +80,9 @@ export const UserAlert = ({
           </h2>
         )}
 
-        {hasLink && id && (
+        {hasLink && alertId && (
           <Link
-            to={`/alerts/${id}`}
+            to={`/alerts/${alertId}`}
             className="p-1 text-rac-light-peach hover:text-rac-peach border-b-2 border-transparent focus:border-rac-light-peach transition-colors"
           >
             <FontAwesomeIcon
@@ -110,37 +113,4 @@ export const UserAlert = ({
       </div>
     </article>
   );
-};
-
-UserAlert.propTypes = {
-  hasLink: PropTypes.bool,
-  showTitle: PropTypes.bool,
-
-  _id: PropTypes.string,
-  user: PropTypes.string.isRequired,
-  alertName: PropTypes.string.isRequired,
-  textValues: PropTypes.exact({
-    message: PropTypes.string.isRequired,
-    button: PropTypes.string.isRequired,
-  }),
-  css: PropTypes.exact({
-    alertBorderColor: PropTypes.string.isRequired,
-    alertBackgroundColor: PropTypes.string.isRequired,
-    buttonBorderColor: PropTypes.string.isRequired,
-    buttonBackgroundColor: PropTypes.string.isRequired,
-    textColor: PropTypes.string.isRequired,
-    buttonTextColor: PropTypes.string.isRequired,
-  }),
-  dimensions: PropTypes.exact({
-    alertHeight: PropTypes.number.isRequired,
-    alertWidth: PropTypes.number.isRequired,
-    alertBorderRadius: PropTypes.number.isRequired,
-    alertBorderWidth: PropTypes.number.isRequired,
-    alertXPadding: PropTypes.number.isRequired,
-    alertYPadding: PropTypes.number.isRequired,
-    buttonXPadding: PropTypes.number.isRequired,
-    buttonYPadding: PropTypes.number.isRequired,
-    buttonBorderRadius: PropTypes.number.isRequired,
-    buttonBorderWidth: PropTypes.number.isRequired,
-  }),
 };

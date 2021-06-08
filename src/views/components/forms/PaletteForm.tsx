@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { ChangeEvent, FC, useContext } from "react";
 // import { useHistory } from "react-router";
 // import { Link } from "react-router-dom";
 import { Context } from "../../../context/Store";
@@ -8,12 +8,12 @@ import { RadioInput } from "../Form/RadioInput";
 import { TinyColor } from "../TinyColor";
 import { colorOptions } from "./constants";
 
-export const PaletteForm = () => {
+export const PaletteForm: FC = () => {
   // const history = useHistory();
   const [state, dispatch] = useContext(Context);
 
-  const handleChange = (event) => {
-    const newTheme = event.target.value;
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newTheme = event.target.value as ThemeOptions;
     const prevTheme = state.theme;
 
     if (prevTheme !== newTheme) {

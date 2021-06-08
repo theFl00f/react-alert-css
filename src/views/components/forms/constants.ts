@@ -1,4 +1,11 @@
-export const colorOptions = [
+interface ThemeOption {
+  label: string;
+  value: string;
+  id: string;
+  name: string;
+}
+
+export const colorOptions: ThemeOption[] = [
   {
     label: "Analogous",
     value: "analogous",

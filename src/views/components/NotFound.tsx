@@ -1,7 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { FC } from "react";
 
-export const NotFound = ({ item }) => {
+interface Props {
+  item: string;
+}
+
+export const NotFound: FC<Props> = ({ item }) => {
   return (
     <div className="prose text-white text-center">
       <h1 style={{ color: "#feb8bd" }} className="text-white">
@@ -10,8 +13,4 @@ export const NotFound = ({ item }) => {
       <p>Sorry, that {item} does not exist.</p>
     </div>
   );
-};
-
-NotFound.propTypes = {
-  item: PropTypes.string.isRequired,
 };

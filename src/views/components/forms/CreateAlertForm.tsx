@@ -1,49 +1,59 @@
-import React, { useContext } from "react";
+import React, { ChangeEvent, FC, useContext } from "react";
 import { Context } from "../../../context/Store";
 import { Form } from "../Form";
 import { RangeInput } from "../Form/RangeInput";
 
-export const CreateAlertForm = () => {
+export const CreateAlertForm: FC = () => {
   const [state, dispatch] = useContext(Context);
 
-  const handleAlertWidthChange = (e) => {
-    dispatch({ type: "SET_ALERT_WIDTH", payload: e.target.value });
+  const handleAlertWidthChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = parseInt(e.target.value);
+    dispatch({ type: "SET_ALERT_WIDTH", payload: input });
   };
 
-  const handleAlertHeightChange = (e) => {
-    dispatch({ type: "SET_ALERT_HEIGHT", payload: e.target.value });
+  const handleAlertHeightChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = parseInt(e.target.value);
+    dispatch({ type: "SET_ALERT_HEIGHT", payload: input });
   };
 
-  const handleAlertBorderRadiusChange = (e) => {
-    dispatch({ type: "SET_ALERT_BORDER_RADIUS", payload: e.target.value });
+  const handleAlertBorderRadiusChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = parseInt(e.target.value);
+    dispatch({ type: "SET_ALERT_BORDER_RADIUS", payload: input });
   };
 
-  const handleAlertBorderWidthChange = (e) => {
-    dispatch({ type: "SET_ALERT_BORDER_WIDTH", payload: e.target.value });
+  const handleAlertBorderWidthChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = parseInt(e.target.value);
+    dispatch({ type: "SET_ALERT_BORDER_WIDTH", payload: input });
   };
 
-  const handleAlertYPaddingChange = (e) => {
-    dispatch({ type: "SET_ALERT_Y_PADDING", payload: e.target.value });
+  const handleAlertYPaddingChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = parseInt(e.target.value);
+    dispatch({ type: "SET_ALERT_Y_PADDING", payload: input });
   };
 
-  const handleAlertXPaddingChange = (e) => {
-    dispatch({ type: "SET_ALERT_X_PADDING", payload: e.target.value });
+  const handleAlertXPaddingChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = parseInt(e.target.value);
+    dispatch({ type: "SET_ALERT_X_PADDING", payload: input });
   };
 
-  const handleButtonYPaddingChange = (e) => {
-    dispatch({ type: "SET_BUTTON_Y_PADDING", payload: e.target.value });
+  const handleButtonYPaddingChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = parseInt(e.target.value);
+    dispatch({ type: "SET_BUTTON_Y_PADDING", payload: input });
   };
 
-  const handleButtonXPaddingChange = (e) => {
-    dispatch({ type: "SET_BUTTON_X_PADDING", payload: e.target.value });
+  const handleButtonXPaddingChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = parseInt(e.target.value);
+    dispatch({ type: "SET_BUTTON_X_PADDING", payload: input });
   };
 
-  const handleButtonBorderRadiusChange = (e) => {
-    dispatch({ type: "SET_BUTTON_BORDER_RADIUS", payload: e.target.value });
+  const handleButtonBorderRadiusChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = parseInt(e.target.value);
+    dispatch({ type: "SET_BUTTON_BORDER_RADIUS", payload: input });
   };
 
-  const handleButtonBorderWidthChange = (e) => {
-    dispatch({ type: "SET_BUTTON_BORDER_WIDTH", payload: e.target.value });
+  const handleButtonBorderWidthChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = parseInt(e.target.value);
+    dispatch({ type: "SET_BUTTON_BORDER_WIDTH", payload: input });
   };
 
   const inputClasses = "grid grid-cols-2";

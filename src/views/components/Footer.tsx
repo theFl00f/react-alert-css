@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-export const Footer = () => {
+export const Footer: FC = () => {
   return (
     <div className="prose prose-rac-green max-w-none">
       <p className="text-right py-2.5 text-white">

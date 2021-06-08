@@ -102,8 +102,7 @@ export const TinyColor: FC = () => {
     return setPalette(newColors);
   };
 
-  const handleClick = (e: Event) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     return setPalette(generatePalette(state.theme));
   };
 
@@ -127,9 +126,9 @@ export const TinyColor: FC = () => {
   }, [state.theme]);
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <div className="col-span-3 md:col-span-6 flex items-center justify-center">
-        <Button onClick={handleClick}>Generate new theme</Button>
+        <Button type="submit">Generate new theme</Button>
       </div>
       <div className="grid grid-cols-3 md:grid-cols-6 place-items-center pb-4">
         {state.palette &&
@@ -145,6 +144,6 @@ export const TinyColor: FC = () => {
             );
           })}
       </div>
-    </>
+    </form>
   );
 };

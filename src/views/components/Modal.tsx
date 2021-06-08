@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import ReactModal from "react-modal";
-import PropTypes from "prop-types";
 import { Button } from "./Button";
 
-export const Modal = ({ children, openButtonText, afterClose }) => {
+interface Props {
+  openButtonText: string;
+  afterClose?: () => void;
+}
+
+export const Modal: FC<Props> = ({ children, openButtonText, afterClose }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -41,10 +45,4 @@ export const Modal = ({ children, openButtonText, afterClose }) => {
       </ReactModal>
     </>
   );
-};
-
-Modal.propTypes = {
-  children: PropTypes.element.isRequired,
-  openButtonText: PropTypes.string.isRequired,
-  afterClose: PropTypes.func.isRequired,
 };

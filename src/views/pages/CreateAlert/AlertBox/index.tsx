@@ -96,7 +96,7 @@ const AlertBox: FC = () => {
               </div>
             </form>
             <div className="flex items-center justify-center mt-2">
-              {!isLoading && <UserAlert {...input} />}
+              {!isLoading && <UserAlert alert={input} />}
               {isLoading && <Loader />}
             </div>
           </div>

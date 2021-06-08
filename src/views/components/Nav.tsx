@@ -1,20 +1,23 @@
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
-import React, { useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import routes from "../../routes/routes";
 
-export const Nav = () => {
-  const ref = useRef(null);
+export const Nav: FC = () => {
+  const ref = useRef<HTMLElement | null>(null);
 
   const [isExpanded, setIsExpanded] = useState(false);
   const toggleExpanded = () => setIsExpanded(!isExpanded);
 
   // close on click out of nav
   useEffect(() => {
-    const listener = (e) => {
-      if (!ref.current || ref.current.contains(e.target)) {
+    const listener = (e: MouseEvent) => {
+      if (
+        !ref.current ||
+        (!!ref.current && ref.current.contains(e.target as Node))
+      ) {
         return;
       }
       setIsExpanded(false);
@@ -25,14 +28,35 @@ export const Nav = () => {
     };
   }, [ref, setIsExpanded]);
 
+  // close on tap out of nav
+  useEffect(() => {
+    const listener = (e: TouchEvent) => {
+      if (!ref.current || ref.current.contains(e.target as Node)) {
+        return;
+      }
+      setIsExpanded(false);
+    };
+    document.addEventListener("touchstart", listener);
+    return () => {
+      document.removeEventListener("touchstart", listener);
+    };
+  }, [ref, setIsExpanded]);
+
   //close on esc keypress
-  const handleKeyDown = (e) => {
-    console.log(e.key);
-    if (e.key === "Escape" || e.key === "Esc") {
-      return setIsExpanded(false);
+  useEffect(() => {
+    const listener = (e: KeyboardEvent) => {
+      if (e.key === "Escape" || e.key === "Esc") {
+        return setIsExpanded(false);
+      }
+      return;
+    };
+    if (isExpanded) {
+      document.addEventListener("keydown", listener);
+      return () => {
+        document.removeEventListener("keydown", listener);
+      };
     }
-    return;
-  };
+  }, [isExpanded, setIsExpanded]);
 
   const ulClasses = classNames(
     {
@@ -49,7 +73,6 @@ export const Nav = () => {
         aria-expanded={isExpanded}
         aria-controls="menu"
         onClick={toggleExpanded}
-        onKeyDown={handleKeyDown}
         className="md:hidden px-2 hover:text-rac-yellow focus:text-rac-light-peach fixed top-4 text-2xl bg-rac-deep-purple bg-opacity-60 rounded"
         style={{ right: "calc((1vw / 24) + 1.5rem)" }}
       >

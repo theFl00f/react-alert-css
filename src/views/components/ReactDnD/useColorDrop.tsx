@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { useDrop } from "react-dnd";
+import { ConnectDropTarget, DropTargetMonitor, useDrop } from "react-dnd";
 import { ItemTypes } from "./constants";
 
-export const useColorDrop = (initialColor) => {
-  const [color, setColor] = useState(initialColor);
+export const useColorDrop = (
+  initialColor: string
+): { isOver: boolean; drop: ConnectDropTarget; color: string } => {
+  const [color, setColor] = useState<string>(initialColor);
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.COLORS,
-    drop: (item, monitor) => {
+    drop: (item: DragItem, monitor: DropTargetMonitor) => {
       const didDrop = monitor.didDrop();
       if (didDrop) {
         return;
