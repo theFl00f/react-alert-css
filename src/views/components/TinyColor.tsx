@@ -128,7 +128,9 @@ export const TinyColor: FC = () => {
   return (
     <>
       <div className="col-span-3 md:col-span-6 flex items-center justify-center">
-        <Button onClick={handleClick}>Generate new theme</Button>
+        <Button type="button" onClick={handleClick}>
+          Generate new theme
+        </Button>
       </div>
       <div className="grid grid-cols-3 md:grid-cols-6 place-items-center pb-4">
         {state.palette &&
