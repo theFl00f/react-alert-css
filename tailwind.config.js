@@ -5,7 +5,6 @@ module.exports = {
     extend: {
       colors: {
         "rac-deep-purple": "#181b7a",
-
         "rac-dark-purple": "#393c92",
         "rac-purple": "#585bd1",
         "rac-light-purple": "#ae97f9",
