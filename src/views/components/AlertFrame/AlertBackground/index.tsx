@@ -1,14 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React, { FC, useContext, useEffect } from "react";
 import { Context } from "../../../../context/Store";
 import { InlineEdit } from "../../InlineEdit";
 import { useColorDrop } from "../../ReactDnD/useColorDrop";
 import { AlertButtonBorder } from "../AlertButton/AlertButtonBorder";
 
-export const AlertBackground = () => {
+export const AlertBackground: FC = () => {
   const [state, dispatch] = useContext(Context);
   const { color, drop } = useColorDrop(state.alertBackgroundColor || "#4f4f4f");
 
-  const saveText = (value) => {
+  const saveText = (value: string) => {
     dispatch({ type: "SET_MESSAGE", payload: value });
   };
 

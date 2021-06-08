@@ -1,10 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { FC, useContext, useEffect } from "react";
 import { Context } from "../../../context/Store";
 import { useColorDrop } from "../ReactDnD/useColorDrop";
 import { AlertBackgroundBorder } from "./AlertBackground/AlertBackgroundBorder";
 import { AlertFrameSwatch } from "./AlertFrameSwatch";
 
-export const AlertFrame = () => {
+export const AlertFrame: FC = () => {
   const [state, dispatch] = useContext(Context);
 
   const textColor = useColorDrop(state.textColor || "#ffffff");

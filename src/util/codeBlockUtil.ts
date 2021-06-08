@@ -1,4 +1,4 @@
-export const generateCSS = (alert) => {
+export const generateCSS = (alert: StateAlert): string => {
   return `html {
   font-size: 62.5%;
 }
@@ -39,12 +39,12 @@ body {
 }`;
 };
 
-export const generateHTML = (alert) => {
+export const generateHTML = (alert: StateAlert): string => {
   return `<div className="react-alert">${
     alert.message &&
     `
   <p>${alert.message}</p>`
   }
-  <button>${alert.buttonText}</button>
+  <button>${alert.button}</button>
 </div>`;
 };

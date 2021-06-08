@@ -1,12 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {
+  CSSProperties,
+  FC,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { Context } from "../../../../context/Store";
 import { useColorDrop } from "../../ReactDnD/useColorDrop";
-import PropTypes from "prop-types";
 
-export const AlertButton = ({ children }) => {
+export const AlertButton: FC = ({ children }) => {
   const [state, dispatch] = useContext(Context);
-  const getComputedStyles = (xPadding) => {
-    const styles = {
+  const getComputedStyles = (xPadding: number): CSSProperties => {
+    const styles: CSSProperties = {
       backgroundColor: state.buttonBackgroundColor,
       color: state.buttonTextColor,
       borderRadius: `${state.buttonBorderRadius}rem`,
@@ -25,7 +30,7 @@ export const AlertButton = ({ children }) => {
     };
     return style;
   };
-  const [computedStyles, setComputedStyles] = useState(
+  const [computedStyles, setComputedStyles] = useState<CSSProperties>(
     getComputedStyles(state.buttonXPadding)
   );
   const { color, drop } = useColorDrop(
@@ -49,15 +54,11 @@ export const AlertButton = ({ children }) => {
   return (
     <button
       className="max-w-full cursor-default"
-      tabIndex="-1"
+      tabIndex={-1}
       style={computedStyles}
       ref={drop}
     >
       {children}
     </button>
   );
-};
-
-AlertButton.propTypes = {
-  children: PropTypes.element.isRequired,
 };

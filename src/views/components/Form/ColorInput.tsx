@@ -1,11 +1,16 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import PropTypes from "prop-types";
+import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import { ColorSwatch } from "../ColorSwatch";
-import { SketchPicker } from "react-color";
+import { SketchPicker, ColorResult } from "react-color";
 
-export const ColorInput = ({ label, value, handleChange }) => {
-  const pickerNode = useRef();
-  const inputNode = useRef();
+interface Props {
+  label: string;
+  value: string;
+  handleChange: (e: ColorResult, value: string) => void;
+}
+
+export const ColorInput: FC<Props> = ({ label, value, handleChange }) => {
+  const pickerNode = useRef<HTMLLabelElement>(null);
+  const inputNode = useRef<HTMLButtonElement>(null);
   const [pickerIsOpen, setPickerIsOpen] = useState(false);
 
   const getPickerClasses = () => {
@@ -26,22 +31,22 @@ export const ColorInput = ({ label, value, handleChange }) => {
     setPickerIsOpen(false);
   };
 
-  const handleColorClick = (event) => {
-    event.preventDefault();
+  const handleColorClick = () => {
     return pickerIsOpen ? closePicker() : openPicker();
   };
 
-  const handleOverlayClick = (event) => {
+  const handleOverlayClick = (event: Event) => {
     if (
-      pickerNode.current.contains(event.target) ||
-      inputNode.current.contains(event.target)
+      (!!pickerNode.current &&
+        pickerNode.current.contains(event.target as Node)) ||
+      (!!inputNode.current && inputNode.current.contains(event.target as Node))
     )
       return;
     closePicker();
   };
 
-  const handleEscKey = useCallback((event) => {
-    if (event.keyCode === 27) {
+  const handleEscKey = useCallback((event: KeyboardEvent) => {
+    if (event.key === "Esc" || event.key === "Escape") {
       closePicker();
     }
   }, []);
@@ -72,26 +77,22 @@ export const ColorInput = ({ label, value, handleChange }) => {
           ref={inputNode}
           onClick={handleColorClick}
         >
+          <span className="sr-only">Click to open color picker</span>
           <ColorSwatch color={value} className="rounded" />
         </button>
-        <div
+        <label
           ref={pickerNode}
           style={{ right: -90 }}
           className={getPickerClasses()}
         >
+          <p className="sr-only">Pick a color</p>
           <SketchPicker
             disableAlpha
             color={value}
             onChangeComplete={(e) => handleChange(e, value)}
           />
-        </div>
+        </label>
       </div>
     </div>
   );
-};
-
-ColorInput.propTypes = {
-  label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  handleChange: PropTypes.func,
 };

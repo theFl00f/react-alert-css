@@ -5,10 +5,7 @@ import { UserAlert } from "../../components/UserAlert";
 import { Wrapper } from "../../components/Wrapper";
 import { Loader } from "../../components/Loader";
 import { ExportedCodeBlock } from "../../components/ExportedCodeBlock";
-import {
-  generateCSS,
-  generateHTML,
-} from "../../components/ExportedCodeBlock/codeBlockUtil";
+import { generateCSS, generateHTML } from "../../../util/codeBlockUtil";
 import { Link, RouteComponentProps } from "react-router-dom";
 import { NotFound } from "../../components/NotFound";
 import { alertToState } from "../../../util/alertFormat";

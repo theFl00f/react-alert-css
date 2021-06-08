@@ -7,10 +7,7 @@ import { CreateAlertForm } from "../../../components/forms/CreateAlertForm";
 import { Modal } from "../../../components/Modal";
 import { SelectedPalette } from "../../../components/SelectedPalette";
 import { ExportedCodeBlock } from "../../../components/ExportedCodeBlock";
-import {
-  generateCSS,
-  generateHTML,
-} from "../../../components/ExportedCodeBlock/codeBlockUtil";
+import { generateCSS, generateHTML } from "../../../../util/codeBlockUtil";
 import { UserAlert } from "../../../components/UserAlert";
 import { stateToAlert } from "../../../../util/alertFormat";
 import { InlineEdit } from "../../../components/InlineEdit";

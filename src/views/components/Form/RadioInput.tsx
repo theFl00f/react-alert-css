@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
-import PropTypes from "prop-types";
+import React, { FC, InputHTMLAttributes, useContext } from "react";
 import { Context } from "../../../context/Store";
 
-export const RadioInput = ({ label, id, ...args }) => {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+}
+
+export const RadioInput: FC<Props> = ({ label, id, ...args }) => {
   const [state] = useContext(Context);
   let classes =
     "flex flex-col items-center prose prose-sm rounded border-2 border-rac-green";
@@ -17,9 +20,4 @@ export const RadioInput = ({ label, id, ...args }) => {
       </label>
     </div>
   );
-};
-
-RadioInput.propTypes = {
-  label: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
 };

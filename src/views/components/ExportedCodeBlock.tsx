@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, { FC, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faClipboard,
@@ -8,7 +7,17 @@ import {
 import Prism from "prismjs";
 import "../../components/prism.css";
 
-export const ExportedCodeBlock = ({ title, code, highlightingClass }) => {
+interface Props {
+  title: string;
+  code: string;
+  highlightingClass: "language-css" | "language-html";
+}
+
+export const ExportedCodeBlock: FC<Props> = ({
+  title,
+  code,
+  highlightingClass,
+}) => {
   const [copied, setCopied] = useState(false);
   useEffect(() => {
     Prism.highlightAll();
@@ -64,10 +73,4 @@ export const ExportedCodeBlock = ({ title, code, highlightingClass }) => {
       </pre>
     </article>
   );
-};
-
-ExportedCodeBlock.propTypes = {
-  title: PropTypes.string.isRequired,
-  code: PropTypes.string.isRequired,
-  highlightingClass: PropTypes.string,
 };

@@ -5,9 +5,9 @@ import React, {
 } from "react";
 
 interface Props {
-  style: CSSProperties;
+  style?: CSSProperties;
   color: string;
-  className: string;
+  className?: string;
 }
 
 export const ColorSwatch: ForwardRefExoticComponent<
