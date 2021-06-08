@@ -16,6 +16,12 @@ export const AlertFormModal: FC<Props> = ({ isOpen, setIsOpen, children }) => {
       isOpen={isOpen}
       onRequestClose={closeModal}
       shouldCloseOnOverlayClick={true}
+      style={{
+        content: {
+          backgroundColor: "#ae97f9",
+          borderColor: "rgba(255, 255, 255, .5)",
+        },
+      }}
       overlayClassName="fixed inset-0 bg-black bg-opacity-50"
     >
       {children}
