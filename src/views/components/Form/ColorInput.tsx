@@ -76,6 +76,7 @@ export const ColorInput: FC<Props> = ({ label, value, handleChange }) => {
           style={{ outlineColor: value }}
           ref={inputNode}
           onClick={handleColorClick}
+          type="button"
         >
           <span className="sr-only">Click to open color picker</span>
           <ColorSwatch color={value} className="rounded" />
