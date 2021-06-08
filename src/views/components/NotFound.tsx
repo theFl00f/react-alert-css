@@ -10,7 +10,10 @@ export const NotFound: FC<Props> = ({ item }) => {
       <h1 style={{ color: "#feb8bd" }} className="text-white">
         <span className="capitalize">{item}</span> not found
       </h1>
-      <p>Sorry, that {item} does not exist.</p>
+      <p>
+        Sorry, the <span className="font-mono italic">{item}</span> could not be
+        found.
+      </p>
     </div>
   );
 };
