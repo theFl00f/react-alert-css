@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC, useState } from "react";
+import React, { CSSProperties, FC, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -66,10 +66,11 @@ export const UserAlert: FC<Props> = ({ showTitle, hasLink, alert }) => {
   } else {
     buttonStyles.padding = `${buttonYPadding}rem ${buttonXPadding}rem`;
   }
-
-  if ("_id" in alert) {
-    setAlertId(alert._id);
-  }
+  useEffect(() => {
+    if ("_id" in alert) {
+      setAlertId(alert._id);
+    }
+  }, [alert]);
 
   return (
     <article className="inline-block">

@@ -5,7 +5,7 @@ import {
   faClipboardCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import Prism from "prismjs";
-import "../../components/prism.css";
+import "./prism.css";
 
 interface Props {
   title: string;

@@ -7,7 +7,7 @@ import { UserAlert } from "../../components/UserAlert";
 import { Wrapper } from "../../components/Wrapper";
 
 const UserAlerts: FC = () => {
-  const [alerts, setAlerts] = useState<DBAlertWithId[]>();
+  const [alerts, setAlerts] = useState<DBAlertWithId[]>([]);
   const [loading, setLoading] = useState(false);
 
   const getAlerts = async () => {
@@ -25,7 +25,7 @@ const UserAlerts: FC = () => {
   };
 
   useEffect(() => {
-    if (!alerts) getAlerts();
+    if (!alerts.length) getAlerts();
   }, []);
 
   return (
@@ -34,7 +34,7 @@ const UserAlerts: FC = () => {
         <div className="w-full flex justify-center items-center pt-4 pb-2">
           {loading && <Loader />}
         </div>
-        {!loading && !alerts && <NotFound item="alerts" />}
+        {!loading && !alerts.length && <NotFound item="alerts" />}
         <section className="flex flex-wrap gap-x-8 gap-y-6 justify-evenly">
           {alerts &&
             alerts.map((alert) => (
