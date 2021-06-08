@@ -73,7 +73,7 @@ export const ColorInput: FC<Props> = ({ label, value, handleChange }) => {
       <div className="relative">
         <button
           className="p-1"
-          style={{ outlineColor: value }}
+          style={{ outlineColor: value, outlineWidth: 5 }}
           ref={inputNode}
           onClick={handleColorClick}
           type="button"
