@@ -7,52 +7,52 @@ export const CreateAlertForm: FC = () => {
   const [state, dispatch] = useContext(Context);
 
   const handleAlertWidthChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const input = parseInt(e.target.value);
+    const input = parseFloat(e.target.value);
     dispatch({ type: "SET_ALERT_WIDTH", payload: input });
   };
 
   const handleAlertHeightChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const input = parseInt(e.target.value);
+    const input = parseFloat(e.target.value);
     dispatch({ type: "SET_ALERT_HEIGHT", payload: input });
   };
 
   const handleAlertBorderRadiusChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const input = parseInt(e.target.value);
+    const input = parseFloat(e.target.value);
     dispatch({ type: "SET_ALERT_BORDER_RADIUS", payload: input });
   };
 
   const handleAlertBorderWidthChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const input = parseInt(e.target.value);
+    const input = parseFloat(e.target.value);
     dispatch({ type: "SET_ALERT_BORDER_WIDTH", payload: input });
   };
 
   const handleAlertYPaddingChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const input = parseInt(e.target.value);
+    const input = parseFloat(e.target.value);
     dispatch({ type: "SET_ALERT_Y_PADDING", payload: input });
   };
 
   const handleAlertXPaddingChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const input = parseInt(e.target.value);
+    const input = parseFloat(e.target.value);
     dispatch({ type: "SET_ALERT_X_PADDING", payload: input });
   };
 
   const handleButtonYPaddingChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const input = parseInt(e.target.value);
+    const input = parseFloat(e.target.value);
     dispatch({ type: "SET_BUTTON_Y_PADDING", payload: input });
   };
 
   const handleButtonXPaddingChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const input = parseInt(e.target.value);
+    const input = parseFloat(e.target.value);
     dispatch({ type: "SET_BUTTON_X_PADDING", payload: input });
   };
 
   const handleButtonBorderRadiusChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const input = parseInt(e.target.value);
+    const input = parseFloat(e.target.value);
     dispatch({ type: "SET_BUTTON_BORDER_RADIUS", payload: input });
   };
 
   const handleButtonBorderWidthChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const input = parseInt(e.target.value);
+    const input = parseFloat(e.target.value);
     dispatch({ type: "SET_BUTTON_BORDER_WIDTH", payload: input });
   };
 
