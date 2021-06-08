@@ -39,6 +39,8 @@ You can also use the slider form to alter the size, padding, border and border-r
 
 When you're done having fun, click the `Export to code` button to reap your reward.
 
+<br />
+
 ### Exporting your code
 <img alt="Generated HTML + CSS for your custom alert" src="https://user-images.githubusercontent.com/53948525/120116508-83f2ae80-c156-11eb-83c2-08536a3de2a4.png"  width="40%" align="right" >
 
@@ -46,6 +48,9 @@ Your code has been generated! Click the clipboard to copy the HTML and CSS into 
 
 To save it for later, `press Publish`.
    
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
