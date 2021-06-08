@@ -74,7 +74,7 @@ const AlertBox: FC = () => {
               </p>
               <div className="flex flex-wrap justify-between items-end mt-2">
                 <div className="w-2/3">
-                  <span className="text-2xl underline transition-colors rac-transition hover:text-rac-peach">
+                  <span className="text-2xl underline transition-colors rac-transition hover:text-white">
                     <InlineEdit
                       text={state.alertName}
                       saveText={setAlertName}
@@ -82,7 +82,7 @@ const AlertBox: FC = () => {
                   </span>
                   <div className="flex items-baseline gap-2">
                     <span>By </span>
-                    <span className="font-mono underline transition-colors rac-transition hover:text-rac-peach">
+                    <span className="font-mono underline transition-colors rac-transition hover:text-white">
                       <InlineEdit text={state.user} saveText={setUser} />
                     </span>
                   </div>
