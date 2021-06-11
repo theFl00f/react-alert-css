@@ -40,3 +40,9 @@ export const stateToAlert = (alert: StateAlert): DBAlert => {
     },
   };
 };
+
+export const isStateAlert = (
+  alert: StateAlert | DBAlertWithId | DBAlert
+): alert is StateAlert => {
+  return (<StateAlert>alert).message !== undefined;
+};

@@ -1,4 +1,5 @@
 import { CreateAlert, UserAlerts } from "../views/pages";
+import { RouteProps } from "./routeTypes";
 
 const routes: RouteProps[] = [
   {

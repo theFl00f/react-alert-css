@@ -109,15 +109,6 @@ type Action =
   | NameAction
   | ErrorAction;
 
-interface RouteProps {
-  path: string;
-  component:
-    | ComponentType<RouteComponentProps<unknown>>
-    | ComponentType<unknown>;
-  label: string;
-  exact?: boolean;
-}
-
 interface DragItem {
   color: string;
 }
